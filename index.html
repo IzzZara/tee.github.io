@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UiTM Tee.com</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Adjusted */
+            font-family: 'Arial', sans-serif;
+            background-image: url('fp.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(145deg, rgba(135, 98, 207, 0.7), rgba(0, 0, 0, 0.5));
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 900px;
+            margin: auto; /* Center horizontally */
+            margin-bottom: 20px; /* Added */
+            margin-top: 10px; /* Adjusted */
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            animation: logoAnimation 2s infinite alternate;
+        }
+        @keyframes logoAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        h1 {
+            font-size: 32px;
+            margin: 10px 0;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+        .description {
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 10px;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 80%; /* Adjust width to make it smaller */
+            max-width: 800px; /* Adjust max-width as needed */
+            margin: 10px auto; /* Center horizontally and adjust vertical margin */
+        }
+        .content {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+        .content img:hover {
+            transform: scale(1.1);
+        }
+        .button-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button {
+            font-size: 16px;
+            padding: 10px 15px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+            width: 150px; /* Fixed width to make buttons uniform */
+        }
+        .button:hover {
+            background: linear-gradient(45deg, #7873f5, #ff6ec4);
+            transform: scale(1.1);
+        }
+        footer {
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            color: black;
+            background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="uitm2.png" alt="UiTM Logo" class="logo">
+        <h1>UiTM Tee.com</h1>
+        <div class="description">
+            <p>Welcome to UiTM Tee.com! Discover our exclusive collection of stylish t-shirts made just for UiTM students. Find your favorite designs, from classic logos to creative graphics, all designed for comfort and durability. Shop now and show your UiTM pride in style!</p>
+        </div>
+        <div class="content-wrapper">
+            <div class="content">
+                <img id="tshirtImg" src="j99.png" alt="T-Shirt Image">
+            </div>
+            <div class="button-container">
+                <button class="button" onclick="window.location.href='login_registeration.html'">Login</button>
+                <br>
+                <button class="button" onclick="window.location.href='registerationForm.html'">Register Account</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 UiTMTee. All rights reserved.</p>
+    </footer>
+    <script>
+        // Array of image URLs for the t-shirt slideshow
+        var images = ["j10.png", "j2.png", "j1.png"]; // Add more image URLs as needed
+
+        // Get reference to the t-shirt image element
+        var tshirtImg = document.getElementById("tshirtImg");
+
+        // Variable to keep track of current image index
+        var currentIndex = 0;
+
+        // Function to update the t-shirt image
+        function updateTshirtImage() {
+            tshirtImg.src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length; // Loop through images
+        }
+
+        // Set interval to update t-shirt image every 3 seconds (3000 milliseconds)
+        setInterval(updateTshirtImage, 3000);
+    </script>
+</body>
+</html>

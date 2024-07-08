@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Login Account</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('fp.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Set minimum height to fill the viewport */
+        }
+        .container {
+            position: relative; /* Make container relatively positioned */
+            width: 400px; 
+            background-color: #fff; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            padding: 20px; 
+            text-align: center; 
+            margin: auto; /* Center the container horizontally */
+            margin-top: auto; /* Push the container to the top of the page */
+            margin-bottom: auto; /* Push the container to the bottom of the page */
+        }
+        .container h2 {
+            margin-bottom: 20px; 
+        }
+        .radio-container {
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 20px; 
+        }
+        .radio-container label {
+            display: block; 
+            cursor: pointer; 
+            padding: 10px 20px; /* Add padding to make the labels clickable */
+            border-radius: 20px; /* Make labels rounded */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        .radio-container input[type="radio"] {
+            display: none; 
+        }
+        /* Custom radio button style */
+        .radio-container label:hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+        }
+        .radio-container input[type="radio"]:checked + label {
+            background-color: deepskyblue; 
+            color: white; 
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+            margin-bottom: 10px; 
+            font-size: 16px; 
+        }
+        .pass-container{
+            position: relative;
+        }
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ccc; /* Set the color of the eye icon */
+        }
+        input[type="submit"] {
+            background-color: deepskyblue; 
+            color: white; 
+            cursor: pointer; 
+        }
+         footer {
+            padding: 15px 0;
+            text-align: center;
+        }
+    </style>
+        
+</head>
+<body>
+    <div style="display: flex; justify-content: space-between; padding: 20px;"> 
+        <a href="frontpage.html" class="btn btn-secondary">Back</a>
+    </div>
+    <div class="container">
+        <img src="uitm2.png" style="width:100px;height:80px;margin: 0 auto;display: block;" alt="Gambar Logo">
+        <h2>LOGIN</h2>
+        <form name="form" method="POST" action="login.php">
+            <div class="radio-container">
+                <div class="radio-button">
+                    <input type="radio" id="admin" name="user_type" value="admin">
+                    <label for="admin">Admin</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="user" name="user_type" value="user" checked>
+                    <label for="user">User</label>
+                </div>
+            </div>
+            <div style="position: relative;">
+            <input type="text" id="uname" name="uname" placeholder="Staff ID/ Student ID">
+        </div>
+        <div class="pass-container" style="position: relative;"> <!-- Make container for input and eye icon relatively positioned -->
+            <input type="password" id="password" name="password" placeholder="Password">
+            <i class="fas fa-eye-slash eye-icon" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <a href="forgotuitmtee.html" style="font-size: 14px; color: blue; text-decoration: none;">Forgotten password?</a>
+            <br>
+            <br>
+            <input type="submit" name="Submit" value="LOGIN">
+            <!--create acc-->
+            <p style="font-size: 14px; color: grey;">Click <a href="registerationForm.html" style="text-decoration: none;"> <span style="color: blue;">HERE</span></a> to register an account</p>
+
+        </form>
+    </div>
+    <?php include('footer.php'); ?>
+    
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var eyeIcon = document.querySelector(".eye-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            }
+        }
+    </script>
+</body>
+</html>

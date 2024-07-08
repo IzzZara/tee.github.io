@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Sidebar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: margin-left 0.3s;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px 8px 15px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar a .icon {
+            margin-right: 10px;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        .toggle-btn:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar" id="sidebar">
+        <a href="#home"><span class="icon">🏠</span> Home</a>
+        <a href="#services"><span class="icon">🛠️</span> Services</a>
+        <a href="#about"><span class="icon">ℹ️</span> About</a>
+        <a href="#contact"><span class="icon">📞</span> Contact</a>
+        <a href="#feedback"><span class="icon">📝</span> Feedback</a>
+    </div>
+
+    
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            var toggleBtn = document.querySelector('.toggle-btn');
+            if (sidebar.style.left === '-250px') {
+                sidebar.style.left = '0';
+                mainContent.style.marginLeft = '250px';
+                toggleBtn.style.left = '270px';
+            } else {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+                toggleBtn.style.left = '20px';
+            }
+        }
+
+        // Close the sidebar when clicking on the sidebar itself
+        document.getElementById('sidebar').addEventListener('click', function() {
+            this.style.left = '-250px';
+            document.getElementById('main-content').style.marginLeft = '0';
+            document.querySelector('.toggle-btn').style.left = '20px';
+        });
+    </script>
+</body>
+</html>
+
